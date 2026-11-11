@@ -62,20 +62,10 @@
       ],
       "default": "available"
     },
-    "capacity": {
-      "type": "string"
-    },
-    "length": {
-      "type": "string"
-    },
-    "width": {
-      "type": "string"
-    },
-    "deckHeight": {
-      "type": "string"
-    },
-    "axles": {
-      "type": "string"
+    "attributes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.attribute"
     },
     "heroImage": {
       "type": "media",

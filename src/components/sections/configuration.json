@@ -8,9 +8,10 @@
       "type": "string",
       "required": true
     },
-    "capacity": { "type": "string" },
-    "length": { "type": "string" },
-    "width": { "type": "string" },
-    "deckHeight": { "type": "string" }
+    "attributes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.attribute"
+    }
   }
 }

@@ -779,12 +779,11 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    attributes: Schema.Attribute.Component<'shared.attribute', true>;
     availability: Schema.Attribute.Enumeration<
       ['available', 'busy', 'maintenance']
     > &
       Schema.Attribute.DefaultTo<'available'>;
-    axles: Schema.Attribute.String;
-    capacity: Schema.Attribute.String;
     category: Schema.Attribute.Enumeration<
       [
         'lowboy',
@@ -799,14 +798,12 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    deckHeight: Schema.Attribute.String;
     description: Schema.Attribute.Blocks;
     features: Schema.Attribute.Component<'sections.feature', true>;
     gallery: Schema.Attribute.Media<'images', true>;
     heroImage: Schema.Attribute.Media<'images'>;
     image: Schema.Attribute.Media<'images'>;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    length: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -829,7 +826,6 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    width: Schema.Attribute.String;
   };
 }
 

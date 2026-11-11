@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_attributes",
+  "info": {
+    "displayName": "Attribute",
+    "description": "Flexible label/value data for service cards and detail pages"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "showOnCard": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
