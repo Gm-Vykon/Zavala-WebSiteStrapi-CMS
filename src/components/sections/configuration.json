@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_configurations",
+  "info": {
+    "displayName": "Configuration"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "capacity": { "type": "string" },
+    "length": { "type": "string" },
+    "width": { "type": "string" },
+    "deckHeight": { "type": "string" }
+  }
+}

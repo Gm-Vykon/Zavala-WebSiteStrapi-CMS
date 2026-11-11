@@ -1,0 +1,4 @@
+{
+  "kind": "singleType", "info": { "singularName": "routes-page", "pluralName": "routes-pages", "displayName": "Routes Page" }, "options": { "draftAndPublish": true },
+  "attributes": { "heroTitle": { "type": "string", "required": true }, "heroDescription": { "type": "text" }, "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] }, "operationsTitle": { "type": "string" }, "operationsDescription": { "type": "text" }, "mapImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] }, "portsTitle": { "type": "string" }, "basesTitle": { "type": "string" }, "corridorsTitle": { "type": "string" }, "corridorsDescription": { "type": "text" }, "ctaTitle": { "type": "string" }, "ctaDescription": { "type": "text" }, "ctaButton": { "type": "component", "component": "shared.button" } }
+}

@@ -1,0 +1,117 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "lowboy",
+        "platform",
+        "extendable",
+        "modular",
+        "oversized",
+        "special-project"
+      ]
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "busy",
+        "maintenance"
+      ],
+      "default": "available"
+    },
+    "capacity": {
+      "type": "string"
+    },
+    "length": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "deckHeight": {
+      "type": "string"
+    },
+    "axles": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.feature"
+    },
+    "configurations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.configuration"
+    },
+    "relatedServices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service.service",
+      "inversedBy": "relatedToServices"
+    },
+    "relatedToServices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service.service",
+      "mappedBy": "relatedServices"
+    }
+  }
+}

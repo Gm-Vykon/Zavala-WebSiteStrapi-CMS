@@ -1,0 +1,4 @@
+{
+  "kind": "singleType", "info": { "singularName": "fleet-page", "pluralName": "fleet-pages", "displayName": "Fleet Page" }, "options": { "draftAndPublish": true },
+  "attributes": { "heroTitle": { "type": "string", "required": true }, "heroDescription": { "type": "text" }, "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] }, "ctaTitle": { "type": "string" }, "ctaDescription": { "type": "text" }, "ctaButton": { "type": "component", "component": "shared.button" } }
+}

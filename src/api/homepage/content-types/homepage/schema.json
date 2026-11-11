@@ -1,0 +1,12 @@
+{
+  "kind": "singleType", "info": { "singularName": "homepage", "pluralName": "homepages", "displayName": "Homepage" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "heroTitle": { "type": "string", "required": true }, "heroDescription": { "type": "text" }, "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "heroPrimaryButton": { "type": "component", "component": "shared.button" }, "heroSecondaryButton": { "type": "component", "component": "shared.button" },
+    "servicesTitle": { "type": "string" }, "servicesDescription": { "type": "text" }, "servicesButton": { "type": "component", "component": "shared.button" },
+    "routesTitle": { "type": "string" }, "routesDescription": { "type": "text" }, "routesMapImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] }, "routesButton": { "type": "component", "component": "shared.button" },
+    "fleetTitle": { "type": "string" }, "fleetButton": { "type": "component", "component": "shared.button" }, "galleryTitle": { "type": "string" },
+    "ctaTitle": { "type": "string" }, "ctaDescription": { "type": "text" }, "ctaButton": { "type": "component", "component": "shared.button" }, "whatsappButton": { "type": "component", "component": "shared.button" }
+  }
+}

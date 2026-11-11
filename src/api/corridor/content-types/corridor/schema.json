@@ -1,0 +1,4 @@
+{
+  "kind": "collectionType", "collectionName": "corridors", "info": { "singularName": "corridor", "pluralName": "corridors", "displayName": "Corridor" }, "options": { "draftAndPublish": true },
+  "attributes": { "origin": { "type": "string", "required": true }, "destination": { "type": "string", "required": true }, "description": { "type": "text" }, "buttonLabel": { "type": "string", "default": "Cotizar esta ruta" }, "buttonUrl": { "type": "string", "default": "/contacto" }, "order": { "type": "integer", "default": 0 }, "isActive": { "type": "boolean", "default": true } }
+}

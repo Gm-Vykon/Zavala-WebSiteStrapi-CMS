@@ -1,0 +1,4 @@
+{
+  "kind": "collectionType", "collectionName": "ports", "info": { "singularName": "port", "pluralName": "ports", "displayName": "Port" }, "options": { "draftAndPublish": true },
+  "attributes": { "name": { "type": "string", "required": true }, "state": { "type": "string" }, "description": { "type": "text" }, "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] }, "order": { "type": "integer", "default": 0 }, "isActive": { "type": "boolean", "default": true } }
+}

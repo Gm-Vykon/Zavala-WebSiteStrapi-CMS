@@ -1,0 +1,4 @@
+{
+  "kind": "collectionType", "collectionName": "quote_requests", "info": { "singularName": "quote-request", "pluralName": "quote-requests", "displayName": "Quote Request" }, "options": { "draftAndPublish": false },
+  "attributes": { "origin": { "type": "string", "required": true }, "destination": { "type": "string", "required": true }, "cargoType": { "type": "string", "required": true }, "approximateWeight": { "type": "string" }, "status": { "type": "enumeration", "enum": ["new", "contacted", "quoted", "closed"], "default": "new" }, "notes": { "type": "text" } }
+}
