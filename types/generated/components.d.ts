@@ -51,6 +51,58 @@ export interface SharedButton extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCardHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_shared_card_highlights';
+  info: {
+    description: 'Short data shown on service cards, for example capacity or axles';
+    displayName: 'Card highlight';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedNavigationItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_navigation_items';
+  info: {
+    description: 'Menu link managed by marketing';
+    displayName: 'Navigation item';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tags';
+  info: {
+    description: 'Simple labels such as Excavadoras, Gr\u00FAas or Equipo minero';
+    displayName: 'Service tag';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+  };
+}
+
+export interface SharedTechnicalAttribute extends Struct.ComponentSchema {
+  collectionName: 'components_shared_technical_attributes';
+  info: {
+    description: 'Technical data shown in the service detail page';
+    displayName: 'Technical attribute';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
@@ -58,6 +110,10 @@ declare module '@strapi/strapi' {
       'sections.feature': SectionsFeature;
       'shared.attribute': SharedAttribute;
       'shared.button': SharedButton;
+      'shared.card-highlight': SharedCardHighlight;
+      'shared.navigation-item': SharedNavigationItem;
+      'shared.tag': SharedTag;
+      'shared.technical-attribute': SharedTechnicalAttribute;
     }
   }
 }

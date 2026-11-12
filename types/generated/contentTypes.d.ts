@@ -581,6 +581,44 @@ export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGlobalSettingsGlobalSettings
+  extends Struct.SingleTypeSchema {
+  collectionName: 'global-settings';
+  info: {
+    displayName: 'Global Settings';
+    pluralName: 'global-settings-configs';
+    singularName: 'global-settings';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultCtaDescription: Schema.Attribute.Text;
+    defaultCtaTitle: Schema.Attribute.String;
+    defaultQuoteButton: Schema.Attribute.Component<'shared.button', false>;
+    defaultWhatsappButton: Schema.Attribute.Component<'shared.button', false>;
+    email: Schema.Attribute.Email;
+    footerDescription: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-settings.global-settings'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    navigation: Schema.Attribute.Component<'shared.navigation-item', true>;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatsapp: Schema.Attribute.String;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepage';
   info: {
@@ -598,6 +636,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     ctaButton: Schema.Attribute.Component<'shared.button', false>;
     ctaDescription: Schema.Attribute.Text;
     ctaTitle: Schema.Attribute.String;
+    featuredServices: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::service.service'
+    >;
     fleetButton: Schema.Attribute.Component<'shared.button', false>;
     fleetTitle: Schema.Attribute.String;
     galleryTitle: Schema.Attribute.String;
@@ -691,43 +733,6 @@ export interface ApiPortPort extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiQuoteRequestQuoteRequest
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'quote_requests';
-  info: {
-    displayName: 'Quote Request';
-    pluralName: 'quote-requests';
-    singularName: 'quote-request';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    approximateWeight: Schema.Attribute.String;
-    cargoType: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    destination: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::quote-request.quote-request'
-    > &
-      Schema.Attribute.Private;
-    notes: Schema.Attribute.Text;
-    origin: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<
-      ['new', 'contacted', 'quoted', 'closed']
-    > &
-      Schema.Attribute.DefaultTo<'new'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRoutesPageRoutesPage extends Struct.SingleTypeSchema {
   collectionName: 'routes-page';
   info: {
@@ -784,6 +789,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       ['available', 'busy', 'maintenance']
     > &
       Schema.Attribute.DefaultTo<'available'>;
+    cardHighlights: Schema.Attribute.Component<'shared.card-highlight', true>;
     category: Schema.Attribute.Enumeration<
       [
         'lowboy',
@@ -799,6 +805,8 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
+    detailDescription: Schema.Attribute.Text;
+    detailTitle: Schema.Attribute.String;
     features: Schema.Attribute.Component<'sections.feature', true>;
     gallery: Schema.Attribute.Media<'images', true>;
     heroImage: Schema.Attribute.Media<'images'>;
@@ -810,6 +818,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     > &
       Schema.Attribute.Private;
+    navigationOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     relatedServices: Schema.Attribute.Relation<
@@ -821,7 +830,14 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     >;
     shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    showInNavigation: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    tags: Schema.Attribute.Component<'shared.tag', true>;
+    technicalAttributes: Schema.Attribute.Component<
+      'shared.technical-attribute',
+      true
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1344,10 +1360,10 @@ declare module '@strapi/strapi' {
       'api::corridor.corridor': ApiCorridorCorridor;
       'api::fleet-page.fleet-page': ApiFleetPageFleetPage;
       'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
+      'api::global-settings.global-settings': ApiGlobalSettingsGlobalSettings;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::operational-base.operational-base': ApiOperationalBaseOperationalBase;
       'api::port.port': ApiPortPort;
-      'api::quote-request.quote-request': ApiQuoteRequestQuoteRequest;
       'api::routes-page.routes-page': ApiRoutesPageRoutesPage;
       'api::service.service': ApiServiceService;
       'plugin::content-releases.release': PluginContentReleasesRelease;

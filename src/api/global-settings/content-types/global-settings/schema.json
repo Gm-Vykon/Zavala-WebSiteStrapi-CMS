@@ -1,6 +1,6 @@
 {
   "kind": "singleType",
-  "info": { "singularName": "global-settings", "pluralName": "global-settings", "displayName": "Global Settings" },
+  "info": { "singularName": "global-settings", "pluralName": "global-settings-configs", "displayName": "Global Settings" },
   "options": { "draftAndPublish": true },
   "attributes": {
     "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
