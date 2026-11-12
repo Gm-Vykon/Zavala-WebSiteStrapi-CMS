@@ -7,6 +7,10 @@
     "phone": { "type": "string" },
     "whatsapp": { "type": "string" },
     "email": { "type": "email" },
+    "defaultQuoteButton": { "type": "component", "component": "shared.button" },
+    "defaultWhatsappButton": { "type": "component", "component": "shared.button" },
+    "defaultCtaTitle": { "type": "string" },
+    "defaultCtaDescription": { "type": "text" },
     "navigation": { "type": "component", "repeatable": true, "component": "shared.navigation-item" },
     "footerDescription": { "type": "text" }
   }

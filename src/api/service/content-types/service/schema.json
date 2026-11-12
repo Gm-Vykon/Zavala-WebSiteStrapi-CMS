@@ -24,6 +24,12 @@
       "type": "text",
       "required": true
     },
+    "detailTitle": {
+      "type": "string"
+    },
+    "detailDescription": {
+      "type": "text"
+    },
     "description": {
       "type": "blocks"
     },
@@ -37,6 +43,14 @@
     "isFeatured": {
       "type": "boolean",
       "default": false
+    },
+    "showInNavigation": {
+      "type": "boolean",
+      "default": true
+    },
+    "navigationOrder": {
+      "type": "integer",
+      "default": 0
     },
     "order": {
       "type": "integer",
@@ -83,6 +97,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tag"
     },
     "gallery": {
       "type": "media",

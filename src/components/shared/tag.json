@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_tags",
+  "info": {
+    "displayName": "Service tag",
+    "description": "Simple labels such as Excavadoras, Grúas or Equipo minero"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
