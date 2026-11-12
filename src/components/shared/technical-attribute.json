@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_technical_attributes",
+  "info": {
+    "displayName": "Technical attribute",
+    "description": "Technical data shown in the service detail page"
+  },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

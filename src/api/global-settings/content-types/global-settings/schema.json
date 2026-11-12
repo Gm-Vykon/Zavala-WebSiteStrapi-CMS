@@ -1,0 +1,13 @@
+{
+  "kind": "singleType",
+  "info": { "singularName": "global-settings", "pluralName": "global-settings", "displayName": "Global Settings" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "phone": { "type": "string" },
+    "whatsapp": { "type": "string" },
+    "email": { "type": "email" },
+    "navigation": { "type": "component", "repeatable": true, "component": "shared.navigation-item" },
+    "footerDescription": { "type": "text" }
+  }
+}

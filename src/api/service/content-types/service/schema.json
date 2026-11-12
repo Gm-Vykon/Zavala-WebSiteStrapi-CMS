@@ -67,6 +67,16 @@
       "repeatable": true,
       "component": "shared.attribute"
     },
+    "cardHighlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card-highlight"
+    },
+    "technicalAttributes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.technical-attribute"
+    },
     "heroImage": {
       "type": "media",
       "multiple": false,

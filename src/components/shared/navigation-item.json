@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_navigation_items",
+  "info": {
+    "displayName": "Navigation item",
+    "description": "Menu link managed by marketing"
+  },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "url": { "type": "string", "required": true },
+    "order": { "type": "integer", "default": 0 },
+    "openInNewTab": { "type": "boolean", "default": false }
+  }
+}

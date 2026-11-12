@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_card_highlights",
+  "info": {
+    "displayName": "Card highlight",
+    "description": "Short data shown on service cards, for example capacity or axles"
+  },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true },
+    "order": { "type": "integer", "default": 0 }
+  }
+}
